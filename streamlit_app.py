@@ -22,7 +22,7 @@ my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT
 #converting to pandas df
 pd_df = my_dataframe.to_pandas()
 st.dataframe(pd_df)
-st.stop()
+#st.stop()
 
 ingredients_list = st.multiselect('Choose upto 5 ingredients:', my_dataframe, 
                                   max_selections=5)
@@ -41,8 +41,8 @@ if ingredients_list:
         #st.text(smoothiefroot_response.json())
         fv_df = st.dataframe(data=fruityvice_response.json(), use_container_width=True)
 
-        st.subheader(fruit_chosen+ 'Nutrition information')
-        smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/"+fruit_chosen)
+        #st.subheader(fruit_chosen+ 'Nutrition information')
+        #smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/"+fruit_chosen)
         #st.text(smoothiefroot_response.json())
 
     my_insert_stmt = """ insert into smoothies.public.orders(ingredients,name_on_order)
